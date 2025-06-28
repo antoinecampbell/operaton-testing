@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: operaton-testing
+
+management:
+  metrics:
+    enable:
+      prometheus: true
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+
+operaton:
+  bpm:
+    admin-user:
+      id: admin
+      password: admin
