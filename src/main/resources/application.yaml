@@ -17,5 +17,5 @@ management:
 operaton:
   bpm:
     admin-user:
-      id: admin
-      password: admin
+      id: demo
+      password: demo
