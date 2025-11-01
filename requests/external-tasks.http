@@ -1,0 +1,70 @@
+### Start process instance
+POST http://localhost:8080/engine-rest/process-definition/key/sample1/start
+Accept: application/json
+Content-Type: application/json
+
+{
+  "businessKey": "{{$random.uuid}}",
+  "variables": {}
+}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+### Fetch and lock task
+# Clear global variables
+< {%
+    client.global.clearAll()
+%}
+POST http://localhost:8080/engine-rest/external-task/fetchAndLock
+Accept: application/json
+Content-Type: application/json
+
+{
+  "workerId": "test-worker",
+  "maxTasks": 1,
+  "usePriority": true,
+  "asyncResponseTimeout": 5000,
+  "topics": [
+    {
+      "topicName": "task1",
+      "lockDuration": 10000,
+      "variables": null
+    }
+  ]
+}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+
+    const tasks = response.body
+    if (tasks.length >= 1) {
+        const taskId = tasks[0]['id']
+        client.global.set("taskId", taskId)
+        console.log(`Setting task id: ${taskId}`)
+    } else {
+        console.log("No tasks fetched")
+    }
+%}
+
+### Complete task
+POST http://localhost:8080/engine-rest/external-task/{{taskId}}/complete
+Accept: application/json
+Content-Type: application/json
+
+{
+  "workerId": "test-worker",
+  "variables": {}
+}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 204, "Response status is not 204");
+    });
+%}
+###
