@@ -29,6 +29,8 @@ dependencies {
     // Testing
     developmentOnly(libs.spring.boot.devtools)
     testImplementation(libs.bundles.testing)
+    // Need to explicitly add operaton-engine to specify the junit5 classifier
+    testImplementation("org.operaton.bpm:operaton-engine:${libs.versions.operaton.get()}:junit5")
 }
 
 kotlin {
