@@ -11,7 +11,7 @@ import org.springframework.web.filter.CorsFilter
 class CorsConfig {
 
     @Bean
-    fun processCorsFilter(): FilterRegistrationBean<CorsFilter?> {
+    fun processCorsFilter(): FilterRegistrationBean<CorsFilter> {
         val source = UrlBasedCorsConfigurationSource()
         val config = CorsConfiguration()
         config.addAllowedOrigin("*")
