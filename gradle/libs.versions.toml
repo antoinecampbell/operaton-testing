@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.3.20"
-kotest = "6.1.7"
+kotest = "6.1.11"
 operaton = "2.1.0"
 spring-boot = "4.0.4"
 spring-dependency-management = "1.1.7"
