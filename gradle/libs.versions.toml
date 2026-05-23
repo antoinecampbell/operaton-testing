@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.3.20"
+kotlin = "2.3.21"
 kotest = "6.1.7"
 operaton = "2.1.0"
 spring-boot = "4.0.4"
