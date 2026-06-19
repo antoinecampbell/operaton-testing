@@ -11,5 +11,6 @@
   "automergeStrategy": "squash",
   "automergeSchedule": ["at any time"],
   "minimumReleaseAge": "14 days",
-  "prCreation": "immediate"
+  "prCreation": "immediate",
+  "labels": ["auto merge"]
 }
