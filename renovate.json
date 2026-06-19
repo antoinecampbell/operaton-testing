@@ -12,11 +12,14 @@
   "automergeSchedule": ["after 10am every weekday"],
   "minimumReleaseAge": "14 days",
   "prCreation": "immediate",
-  "labels": ["auto merge"],
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
       "automerge": false
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "labels": ["auto merge"]
     }
   ]
 }
