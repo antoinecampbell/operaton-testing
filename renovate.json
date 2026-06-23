@@ -5,19 +5,17 @@
   "prCreation": "immediate",
   "packageRules": [
     {
-      "automerge": false,
       "matchUpdateTypes": ["major"],
-      "prCreation": "immediate"
+      "automerge": false
     },
     {
       "automerge": true,
       "automergeType": "pr",
       "automergeStrategy": "squash",
       "automergeSchedule": ["after 10am every weekday"],
-      "labels": ["auto merge"],
       "minimumReleaseAge": "30 days",
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "prCreation": "immediate"
+      "labels": ["auto merge"]
     }
   ]
 }
