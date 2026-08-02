@@ -3,6 +3,7 @@
   "extends": ["config:best-practices"],
   "enabledManagers": ["gradle", "gradle-wrapper", "github-actions"],
   "prCreation": "immediate",
+  "internalChecksFilter": "flexible",
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
