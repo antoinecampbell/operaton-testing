@@ -11,7 +11,7 @@ import org.operaton.bpm.engine.test.assertions.bpmn.ProcessInstanceAssert
 
 fun ProcessInstanceAssert.hasIncident(): ProcessInstanceAssert {
     runtimeService().createIncidentQuery()
-        .processInstanceId(this.actual.id)
+        .processInstanceId(this.actual?.id)
         .list().isNotEmpty()
     return this
 }
